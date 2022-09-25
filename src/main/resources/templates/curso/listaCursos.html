@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+
+</head>
+
+<body>
+<div th:if="${cursos != null && !cursos.isEmpty()}">
+    <p>Lista de cursos cadastrados: </p>
+    <ul style="width: 50%">
+        <li th:each="curso : ${cursos}" style="min-width: 12%;display: flex;justify-content: space-between;">
+            <div style="width: 50%">
+                <span th:text="${curso.descricao}"/>
+            </div>
+            <div style="width: 50%">
+                <a th:href="@{/curso/showUpdateForm/{id}(id=${curso.id})}">Editar</a>
+                <a th:href="@{/curso/deleteCurso/{id}(id=${curso.id})}" >Excluir</a>
+            </div>
+        </li>
+    </ul>
+    <br><br>
+</div>
+<div th:unless="${cursos != null && !cursos.isEmpty()}">
+    <p><b>Não existem cursos cadastrados.</b></p>
+    <span>Clique em Formulário de cursos e adicione.</span>
+</div>
+
+<br><br>
+<a href="/">Home</a><br>
+<a href="/curso/showForm">Formulário de curso</a><br>
+
+</body>
+
+</html>

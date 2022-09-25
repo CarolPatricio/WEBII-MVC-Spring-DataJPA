@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Curso ' +  ${curso.descricao}"></title>
+
+</head>
+<body>
+
+<div th:if="${edit == true}"><h1 th:text="${curso.descricao} + ' alterado com sucesso!'" style="color: cornflowerblue;"></h1></div>
+<h1><p th:text="${curso.descricao}"></h1>
+<p th:text="'ID do curso:  ' + ${curso.id}"></p>
+
+<br><br>
+<a href="/">Início</a><br>
+<a href="getListaCursos">Ver lista de cursos</a><br>
+<a href="showForm">Formulário de cursos</a><br>
+
+
+</body>
+</html>
+
